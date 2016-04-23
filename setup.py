@@ -22,6 +22,7 @@ requires = [
     'SimpleParse',
     'gtextfsm',
     'redis', # The python interface, not the daemon!
+    'docopt',
 ]
 
 class CleanCommand(Command):
@@ -108,6 +109,9 @@ setup(
         'tools/init_task_db',
         'tools/prepend_acl_dot',
     ],
+    entry_points={
+        'console_scripts': ['trigger=trigger.client.cli:main']
+    },
     install_requires=requires,
     keywords = [
         'Configuration Management',
